@@ -9,6 +9,16 @@ class Ordenacao:
         return lista
     
     @staticmethod
+    def selection_sort(lista):
+        n = len(lista)
+        for i in range(n):
+            minimo = i
+            for j in range(i + 1, n):
+                if lista[minimo] > lista[j]:
+                    minimo = j
+            lista[i], lista[minimo] = lista[minimo], lista[i]
+    
+    @staticmethod
     def insertion_sort(lista):
         for i in range(1, len(lista)):
             chave = lista[i]

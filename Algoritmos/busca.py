@@ -19,3 +19,7 @@ class Busca:
             else:
                 fim = meio - 1
         return -1
+    
+   
+        
+            

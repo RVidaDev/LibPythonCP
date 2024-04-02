@@ -21,7 +21,6 @@ class Ordenacao:
     
     @staticmethod
     def merge(esquerda, direita):
-   
         resultado = []
         i = j = 0
         
@@ -35,24 +34,23 @@ class Ordenacao:
         
         resultado.extend(esquerda[i:])
         resultado.extend(direita[j:])
-    
+        
         return resultado
-    def merge_sort(lista):
     
+    @staticmethod
+    def merge_sort(lista):
         if len(lista) <= 1:
             return lista
-        
         
         meio = len(lista) // 2
         esquerda = lista[:meio]
         direita = lista[meio:]
         
-        esquerda = merge(esquerda)
-        direita = merge(direita)
+        esquerda = Ordenacao.merge_sort(esquerda)
+        direita = Ordenacao.merge_sort(direita)
         
-        return merge(esquerda, direita)
+        return Ordenacao.merge(esquerda, direita)
 
- 
     def quicksort(self, arr):
         if len(arr) <= 1:
             return arr
@@ -61,6 +59,3 @@ class Ordenacao:
             less_than_pivot = [x for x in arr[1:] if x <= pivot]
             greater_than_pivot = [x for x in arr[1:] if x > pivot]
             return self.quicksort(less_than_pivot) + [pivot] + self.quicksort(greater_than_pivot)
-            
-            
-                
